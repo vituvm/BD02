@@ -1,0 +1,9 @@
+export enum Pagamento {
+  BOLETO = 'BOLETO',
+
+  CARTAO_CREDITO = 'CARTAO_CREDITO',
+
+  CARTAO_DEBITO = 'CARTAO_DEBITO',
+
+  PIX = 'PIX',
+}

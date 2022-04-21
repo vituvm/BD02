@@ -1,0 +1,11 @@
+{
+  "bd02App": {
+    "Pagamento": {
+      "null": "",
+      "BOLETO": "BOLETO",
+      "CARTAO_CREDITO": "CARTAO_CREDITO",
+      "CARTAO_DEBITO": "CARTAO_DEBITO",
+      "PIX": "PIX"
+    }
+  }
+}

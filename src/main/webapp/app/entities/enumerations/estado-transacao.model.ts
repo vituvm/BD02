@@ -1,0 +1,11 @@
+export enum EstadoTransacao {
+  CRIADO = 'CRIADO',
+
+  AGUARDANDO_PAGAMENTO = 'AGUARDANDO_PAGAMENTO',
+
+  PAGO = 'PAGO',
+
+  EXPIRADO = 'EXPIRADO',
+
+  CANCELADO = 'CANCELADO',
+}

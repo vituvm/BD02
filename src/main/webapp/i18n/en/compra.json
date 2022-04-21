@@ -1,0 +1,30 @@
+{
+  "bd02App": {
+    "compra": {
+      "home": {
+        "title": "Compras",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Compra",
+        "createOrEditLabel": "Create or edit a Compra",
+        "notFound": "No Compras found"
+      },
+      "created": "A new Compra is created with identifier {{ param }}",
+      "updated": "A Compra is updated with identifier {{ param }}",
+      "deleted": "A Compra is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Compra {{ id }}?"
+      },
+      "detail": {
+        "title": "Compra"
+      },
+      "id": "ID",
+      "percentualDesconto": "Percentual Desconto",
+      "valorFinal": "Valor Final",
+      "dataCriacao": "Data Criacao",
+      "formaPagamento": "Forma Pagamento",
+      "estado": "Estado",
+      "curso": "Curso",
+      "usuario": "Usuario"
+    }
+  }
+}
