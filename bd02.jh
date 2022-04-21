@@ -1,0 +1,59 @@
+entity Usuario {
+    nome String required
+    cpf String
+    dataNascimento LocalDate
+    tipo TipoUsuario
+    criacao ZonedDateTime
+}
+enum TipoUsuario{
+	ALUNO, PROFESSOR
+}
+entity Endereco{
+    cep String
+    logradouro String
+    complemento String
+    numero String
+    bairro String
+    cidade String
+    estado String
+    criacao ZonedDateTime
+}
+
+entity Compra {
+	//usuario
+    //curso
+    percentualDesconto Double
+    valorFinal Double
+    dataCriacao ZonedDateTime
+    formaPagamento Pagamento
+    estado EstadoTransacao
+}
+
+enum EstadoTransacao {
+	CRIADO, AGUARDANDO_PAGAMENTO, PAGO, EXPIRADO, CANCELADO
+}
+
+enum Pagamento {
+	BOLETO, CARTAO_CREDITO, CARTAO_DEBITO, PIX
+}
+
+entity Curso {
+	titulo String required
+    duracaoCH Double
+    descricao String
+    valor Double
+    criacao ZonedDateTime
+}
+
+relationship ManyToOne{
+	Compra{curso(titulo)} to Curso
+	Compra{usuario(nome)} to Usuario
+    Endereco{usuario} to Usuario
+    Curso{professor} to Usuario
+	Curso{aluno} to Usuario
+}
+// Set pagination options
+paginate * with pagination
+dto * with mapstruct
+service all with serviceImpl
+filter *
