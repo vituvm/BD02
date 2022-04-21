@@ -1,0 +1,9 @@
+{
+  "bd02App": {
+    "TipoUsuario": {
+      "null": "",
+      "ALUNO": "ALUNO",
+      "PROFESSOR": "PROFESSOR"
+    }
+  }
+}

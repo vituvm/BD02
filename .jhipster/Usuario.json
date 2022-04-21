@@ -1,0 +1,38 @@
+{
+  "applications": "*",
+  "changelogDate": "20220421184212",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "usuario",
+  "fields": [
+    {
+      "fieldName": "nome",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "cpf",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dataNascimento",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "tipo",
+      "fieldType": "TipoUsuario",
+      "fieldValues": "ALUNO,PROFESSOR"
+    },
+    {
+      "fieldName": "criacao",
+      "fieldType": "ZonedDateTime"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Usuario",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceImpl"
+}

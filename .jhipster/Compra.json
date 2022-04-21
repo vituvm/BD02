@@ -1,0 +1,53 @@
+{
+  "applications": "*",
+  "changelogDate": "20220421184214",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "compra",
+  "fields": [
+    {
+      "fieldName": "percentualDesconto",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "valorFinal",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "dataCriacao",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "formaPagamento",
+      "fieldType": "Pagamento",
+      "fieldValues": "BOLETO,CARTAO_CREDITO,CARTAO_DEBITO,PIX"
+    },
+    {
+      "fieldName": "estado",
+      "fieldType": "EstadoTransacao",
+      "fieldValues": "CRIADO,AGUARDANDO_PAGAMENTO,PAGO,EXPIRADO,CANCELADO"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Compra",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "titulo",
+      "otherEntityName": "curso",
+      "otherEntityRelationshipName": "compra",
+      "relationshipName": "curso",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "nome",
+      "otherEntityName": "usuario",
+      "otherEntityRelationshipName": "compra",
+      "relationshipName": "usuario",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

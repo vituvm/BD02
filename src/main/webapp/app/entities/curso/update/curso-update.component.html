@@ -1,0 +1,100 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-curso-heading" data-cy="CursoCreateUpdateHeading" jhiTranslate="bd02App.curso.home.createOrEditLabel">
+        Create or edit a Curso
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="bd02App.curso.titulo" for="field_titulo">Titulo</label>
+          <input type="text" class="form-control" name="titulo" id="field_titulo" data-cy="titulo" formControlName="titulo" />
+          <div *ngIf="editForm.get('titulo')!.invalid && (editForm.get('titulo')!.dirty || editForm.get('titulo')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('titulo')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="bd02App.curso.duracaoCH" for="field_duracaoCH">Duracao CH</label>
+          <input type="number" class="form-control" name="duracaoCH" id="field_duracaoCH" data-cy="duracaoCH" formControlName="duracaoCH" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="bd02App.curso.descricao" for="field_descricao">Descricao</label>
+          <input type="text" class="form-control" name="descricao" id="field_descricao" data-cy="descricao" formControlName="descricao" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="bd02App.curso.valor" for="field_valor">Valor</label>
+          <input type="number" class="form-control" name="valor" id="field_valor" data-cy="valor" formControlName="valor" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="bd02App.curso.criacao" for="field_criacao">Criacao</label>
+          <div class="d-flex">
+            <input
+              id="field_criacao"
+              data-cy="criacao"
+              type="datetime-local"
+              class="form-control"
+              name="criacao"
+              formControlName="criacao"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="bd02App.curso.professor" for="field_professor">Professor</label>
+          <select class="form-control" id="field_professor" data-cy="professor" name="professor" formControlName="professor">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="usuarioOption.id === editForm.get('professor')!.value?.id ? editForm.get('professor')!.value : usuarioOption"
+              *ngFor="let usuarioOption of usuariosSharedCollection; trackBy: trackUsuarioById"
+            >
+              {{ usuarioOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="bd02App.curso.aluno" for="field_aluno">Aluno</label>
+          <select class="form-control" id="field_aluno" data-cy="aluno" name="aluno" formControlName="aluno">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="usuarioOption.id === editForm.get('aluno')!.value?.id ? editForm.get('aluno')!.value : usuarioOption"
+              *ngFor="let usuarioOption of usuariosSharedCollection; trackBy: trackUsuarioById"
+            >
+              {{ usuarioOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
